@@ -33,7 +33,7 @@ def is_power_of_two(number):
 #sum of digits in long number
 def sum_digits(num, sum=0):
     x = num % 10
-    print(num, sum, x)
+    #print(num, sum, x)
     if num < 10:
         sum = sum + num
         return sum
