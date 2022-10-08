@@ -1,4 +1,7 @@
 #show all numbers from 100 to 0
+import random
+
+
 def countdown(number):
     print(number)
     if number > 0:
@@ -43,5 +46,22 @@ def sum_digits(num, sum=0):
         sum = sum_digits(num = num - x, sum = sum + x)
     return sum
 
+
+def quicksort(list_):
+
+    def partial_sort(l):
+        if len(l) < 2:
+            return l
+
+        r = random.randint(0, len(l)-1)
+        left = [x for x in l[:r]+l[r+1:] if x <= l[r]]
+        right = [x for x in l[:r]+l[r+1:] if x > l[r]]
+
+        return partial_sort(left) + [l[r]] + partial_sort(right)
+
+    sorted = partial_sort(list_)
+    return sorted
+
+
 if __name__ == "__main__":
-    print(sum_digits(925))
+    print(quicksort([random.randint(-5000, 5000) for x in range(0, 20)]))
