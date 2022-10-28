@@ -19,3 +19,21 @@ class Best_Time_to_Buy_and_Sell_Stock:
         if max_bound == 0:
             return 0
         return max_bound - min_bound
+
+class lengthOfLastWord:
+    """
+    Given a string s consisting of words and spaces, return the length of the last word in the string.
+    A word is a maximal substring consisting of non-space characters only.
+
+    Runtime: 61 ms, faster than 27.97% of Python3 online submissions for Length of Last Word.
+    Memory Usage: 14 MB, less than 5.39% of Python3 online submissions for Length of Last Word.
+    """
+    def lengthOfLastWord(self, s: str) -> int:
+        from string import ascii_letters, whitespace
+        good_chars = (ascii_letters + whitespace).encode()
+        junk_chars = bytearray(set(range(0x100)) - set(good_chars))
+
+        s = s.encode('ascii', 'ignore').translate(None, junk_chars).decode()
+        words = s.split(" ")
+        words = [x for x in words if x != '']
+        return len(words[-1])
