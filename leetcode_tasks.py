@@ -7,9 +7,9 @@ class Best_Time_to_Buy_and_Sell_Stock:
         best = 0
         min_bound = prices[0]
         max_bound = 0
-        while i < len(prices)-1:
+        while i < len(prices) - 1:
             if prices[i] < prices[i + 1] and prices[i] <= min_bound:
-                new_max = max(prices[i+1:])
+                new_max = max(prices[i + 1:])
                 profit = new_max - prices[i]
                 if profit > best:
                     best = profit
@@ -19,4 +19,3 @@ class Best_Time_to_Buy_and_Sell_Stock:
         if max_bound == 0:
             return 0
         return max_bound - min_bound
-
